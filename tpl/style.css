@@ -1,0 +1,181 @@
+body { 
+  font-family: 'Oswald', Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  text-decoration: none;
+  text-transform: none;
+  word-spacing: 0em;
+  width: 920px;
+  margin-left: auto;
+  margin-right: auto;  
+}
+
+#header {
+    position: relative;
+    z-index: 1;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    color: #a00;
+    font-style: normal;
+    font-weight: 400;
+    text-decoration: none;
+    text-transform: none;
+    word-spacing: 0em;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+#header .title {
+    font-family: 'Lobster', serif;
+    font-size: 180px;
+    letter-spacing: -0.038em;
+    line-height: .8;
+}
+
+#header .subtitle {
+    font-family: 'Bevan', Georgia, serif;
+    font-size: 54px;
+    letter-spacing: -0.07em;
+    line-height: 1.2;
+}
+
+.legend {    
+    width: 100%;
+    height: 80px;
+}
+
+.legend .key {
+    float: left;
+    text-shadow: #333 1px 1px 4px;
+    vertical-align: bottom;
+    margin-right: 1px;
+    padding: 20px;
+    width: 100px;
+    color: #fff;
+    font-size: 14px;
+    position: relative;
+}
+
+.category {
+    position: absolute;
+    bottom: 4px;
+    left: 8px;
+}
+
+.card {
+    text-align: left;
+    background-color: #fff;
+}
+
+.card img {
+    float: left;
+    margin: 5px 10px 5px 5px;
+}
+
+.card .name {
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.card .description {
+    font-family: Georgia, Times, sans-serif;
+    font-style: italic;
+    font-size: 14px;
+    color: #333;
+}
+
+.heading {
+    font-family: 'Bevan', Georgia, serif;
+    color: #a00;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    text-decoration: none;
+    letter-spacing: 0em;
+    word-spacing: 0em;
+    padding-bottom: 10px;
+}
+
+.month {
+    clear: both;
+}
+
+.chart {
+    float: left;
+    text-align: right;
+    height: 100px;
+    width: 300px;
+    position: relative;
+}
+
+.chart .date {
+    font-family: 'Bevan', Georgia, serif;
+    color: #666;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.chart .value {
+    font-size: 36px;
+    color: #333;
+    position: absolute;
+    top: 30px;
+    right: 10px;
+}
+
+.chart .bar {
+    position: absolute;
+    right: 0px;
+    height: 60px;
+    background-color: #9996ff;
+}
+
+.keywords {
+    width: 600px;
+    float: left;
+    margin: 20px 0px 40px 20px;
+}
+
+.keyword {
+  font-size: 58px;
+  line-height: 1.0;
+  letter-spacing: -4px;
+}
+
+.ribbon {
+    /* via http://unindented.org/articles/2009/10/github-ribbon-using-css-transforms */
+    background-color: #a00;
+    overflow: hidden;
+    /* top left corner */
+    position: absolute;
+    left: -3em;
+    top: 2.5em;
+    /* 45 deg ccw rotation */
+    -moz-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    /* shadow */
+    -moz-box-shadow: 0 0 1em #888;
+    -webkit-box-shadow: 0 0 1em #888;
+    z-index: 1;
+}
+
+.ribbon a {
+    border: 1px solid #faa;
+    color: #fff;
+    display: block;
+    font: bold 16px 'Helvetiva Neue', Helvetica, Arial, sans-serif;
+    margin: 0.05em 0 0.075em 0;
+    padding: 0.5em 3.5em;
+    text-align: center;
+    text-decoration: none;
+    /* shadow */
+    text-shadow: 0 0 0.5em #444;
+}
+
+#footer {
+    border-top: 1px solid #ccc;
+    text-align: center;
+    clear: both;
+    font-family: 'Lobster', serif;
+    font-size: 72px;
+}

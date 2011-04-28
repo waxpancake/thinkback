@@ -1,0 +1,13 @@
+ThinkBack is a quick hack demonstrating the new Post API in ThinkUp, a free, open-source web app for capturing and analyzing your social network activity.
+
+It assumes you've already downloaded and installed ThinkUp <http://thinkupapp.com>, and added at least one Twitter account to it.
+
+It uses AlchemyAPI <http://www.alchemyapi.com/> for entity extraction, pulling out people, places, objects and other entities from your Twitter history, and colors them based on their category.  It also uses Google Web Fonts <http://www.google.com/webfonts> for type and RainTPL <http://www.raintpl.com/> for templates.  Support for two other text analysis web services -- Zemanta.com and Text-processing.com -- are included, but disabled in the code.  (I didn't have great results with either.)
+
+
+INSTALLATION
+
+1. Go to http://www.alchemyapi.com/ and sign up for an API key.
+2. Copy config.sample.inc.php to config.inc.php and edit the file.  
+3. Add your new API key and Twitter username to the file.
+4. Make sure the tmp/ cache folder is writable by your webserver.  `chmod a+w tmp/` should do it.

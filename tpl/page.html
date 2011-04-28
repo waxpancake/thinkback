@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset=utf-8 />
+<title>ThinkBack: A ThinkUp-Powered Time Capsule</title>
+<link href="style.css" type="text/css" rel="stylesheet">
+<!-- I like pretty fonts, don't you? Google Web Fonts is pretty great: http://www.google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=Oswald:regular" rel="stylesheet" type="text/css">
+<link  href="http://fonts.googleapis.com/css?family=Bevan:regular" rel="stylesheet" type="text/css" >
+<link  href="http://fonts.googleapis.com/css?family=Lobster:regular" rel="stylesheet" type="text/css" >
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+</head>
+
+<body>	
+<div id="content">
+    <div id="header">
+        <div class="title">ThinkBack</div>
+        <div class="subtitle">A ThinkUp-Powered Time Capsule</div>
+    </div>
+
+    <div class="month">
+        <div class="chart" style="text-align: left">
+            <div class="heading">Number of tweets for...</div>
+            <div class="card">
+                <img src="{$user_info->profile_image_url}">
+                <div class="name">{$user_info->name} <a href="http://twitter.com/{$user_info->screen_name}">@{$user_info->screen_name}</a></div> 
+                <div class="description">{$user_info->description}</div>
+            </div>
+        </div>    	
+        <div class="keywords" style="margin-top:0px">
+            <div class="heading">What you tweeted...</div>
+            <div class="legend">
+               <div class="key" style="background-color: #B35806"><div class="category">People</div></div>
+               <div class="key" style="background-color: #E08214"><div class="category">Organizations</div></div>
+               <div class="key" style="background-color: #FDB863"><div class="category">Companies</div></div>
+               <div class="key" style="background-color: #FEE0B6"><div class="category">Technology</div></div>
+               <div class="key" style="background-color: #B2ABD2"><div class="category">Products</div></div>
+               <div class="key" style="background-color: #8073AC"><div class="category">Places</div></div>
+               <div class="key" style="background-color: #542788"><div class="category">Terminology</div></div>
+               <div class="key" style="background-color: #999"><div class="category">Other</div></div>
+            </div>
+        </div>
+    </div>
+            
+    {loop="stats"}
+        <div class="month">
+            {$date = $key}
+            {$tweet_count = $value}
+            <div class="chart">
+                <div class="date">{function="date('F Y', strtotime($key))"}</div>
+                <div class="bar" style="width:{$tweet_count/$max_messages*100}%"></div>
+                <div class="value">{$tweet_count}</div>
+            </div>
+	       <div class="keywords">
+            	{loop="$keywords[$date]"}
+        	       {$color = $value}
+        	       <span class="keyword" style="color:{$colors[$color]?$colors[$color]:'#999'}"> {$key} </span>
+            	{/loop}
+    	   </div>
+        </div>
+    {/loop}
+    
+    <div class="ribbon">
+        <a href="https://github.com/waxpancake/thinkback" rel="me">Get your own!</a>
+    </div>
+
+    <div id="footer">
+        Powered by <a href="http://thinkupapp.com/">ThinkUp</a>
+    </div>
+</div>
+</body>
+</html>

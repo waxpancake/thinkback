@@ -1,0 +1,1 @@
+Make sure this cache folder is writable by your webserver.  `chmod a+w tmp/` should do it.
