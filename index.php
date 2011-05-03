@@ -56,7 +56,7 @@ if ( $cache = $tpl->cache('page', $expire_time = $cache_in_seconds) ) {
         // track the number of tweets per month
         $num_tweets = count($results);
 
-        if ($num_tweets == 0) {
+        if ($num_tweets <= 1) {
             $date_start = date('Y-m-01', strtotime( '+1 month', strtotime($date_start)) );
             $date_end = date('Y-m-01', strtotime( '+1 month', strtotime($date_start)) );
             continue;
