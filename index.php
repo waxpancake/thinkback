@@ -28,7 +28,7 @@ if ( $cache = $tpl->cache('page', $expire_time = $cache_in_seconds) ) {
     );
     $results = ThinkupQuery($args);
     
-    if ($results->error) {
+    if ($results->error or count($results) == 0) {
         exit("Sorry, I couldn't find your archives in ThinkUp. Please check your username in config.inc.php settings and try again.");
     }
     $first_tweet = array_shift($results);
@@ -55,11 +55,14 @@ if ( $cache = $tpl->cache('page', $expire_time = $cache_in_seconds) ) {
         
         // track the number of tweets per month
         $num_tweets = count($results);
-        $stats[$date_start] = $num_tweets;
-        
+
         if ($num_tweets == 0) {
+            $date_start = date('Y-m-01', strtotime( '+1 month', strtotime($date_start)) );
+            $date_end = date('Y-m-01', strtotime( '+1 month', strtotime($date_start)) );
             continue;
         }
+
+        $stats[$date_start] = $num_tweets;
         
         $text = '';
         foreach ($results as $post) {
@@ -130,7 +133,7 @@ if ( $cache = $tpl->cache('page', $expire_time = $cache_in_seconds) ) {
 function ThinkupQuery($args) {
     $query = '?' . http_build_query($args);
     $url = $GLOBALS['tu_install'] . $GLOBALS['tu_api_endpoint'] . $query;
-    if ($_GET['debug']) { print $url . "<br>"; }
+    # error_log($url);
 
     // if request fails, try up to five times
     for ($i=0; $i < 5; $i++) {
