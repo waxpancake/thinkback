@@ -20,11 +20,11 @@ if ( $cache = $tpl->cache('page', $expire_time = $cache_in_seconds) ) {
 	echo $cache;
 } else {
     $args = array(
-        type => 'user_posts',
-        username => $username,
-        count => 1,
-        order_by => 'date',
-        direction => 'asc'
+        'type' => 'user_posts',
+        'username' => $username,
+        'count' => 1,
+        'order_by' => 'date',
+        'direction' => 'asc'
     );
     $results = ThinkupQuery($args);
     
@@ -44,12 +44,12 @@ if ( $cache = $tpl->cache('page', $expire_time = $cache_in_seconds) ) {
     
     while ($date_start < $today) {
         $args = array(
-            type => 'user_posts_in_range',
-            username => $username,
-            trim_user => 1,
-            from => $date_start,
-            until => $date_end,
-            count => 10000
+            'type' => 'user_posts_in_range',
+            'username' => $username,
+            'trim_user' => 1,
+            'from' => $date_start,
+            'until' => $date_end,
+            'count' => 10000
         );
         $results = ThinkupQuery($args);
         
