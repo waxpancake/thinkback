@@ -131,7 +131,7 @@ if ( $cache = $tpl->cache('page', $expire_time = $cache_in_seconds) ) {
 
 
 function ThinkupQuery($args) {
-    $query = '?' . http_build_query($args);
+    $query = '?' . http_build_query($args, '', '&');
     $url = $GLOBALS['tu_install'] . $GLOBALS['tu_api_endpoint'] . $query;
     # error_log($url);
 
