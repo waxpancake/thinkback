@@ -6,7 +6,7 @@ date_default_timezone_set($timezone);
 // this shouldn't have to change
 $tu_api_endpoint = '/api/v1/post.php';
 
-if ($_GET['user']) { $username = $_GET['user']; }
+if (isset($_GET['user'])) { $username = $_GET['user']; }
 
 // template setup
 include "inc/rain.tpl.class.php";
