@@ -18,4 +18,5 @@
     $cache_in_seconds = 86400;
     $max_items = 10; // how many keywords to show for each period
 
+	$sort = 'asc'; // or desc, to show latest month first
 ?>

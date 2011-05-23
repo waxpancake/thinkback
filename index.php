@@ -8,6 +8,8 @@ $tu_api_endpoint = '/api/v1/post.php';
 
 if (isset($_GET['user'])) { $username = $_GET['user']; }
 
+if (!isset($sort)) $sort = 'asc';
+
 // template setup
 include "inc/rain.tpl.class.php";
 raintpl::configure("tpl_dir", "tpl/" );
@@ -89,6 +91,9 @@ if ( $cache = $tpl->cache('page', $expire_time = $cache_in_seconds) ) {
         $date_start = date('Y-m-01', strtotime( '+1 month', strtotime($date_start)) );
         $date_end = date('Y-m-01', strtotime( '+1 month', strtotime($date_start)) );
     }
+	if($sort == 'desc'){
+		krsort($stats);
+	}
 
     // using Text-Processing.com's API (disabled)
     # $response = TextProcessingQuery($text);
